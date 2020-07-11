@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  db:
+    image: mongo
+    container_name: "url-shortener-db"
+    ports:
+      - 27017:27017
+    volumes:
+      - "mongodb:/data/db"
+    env_file:
+      - "db.env"
+    restart: always
+volumes:
+  mongodb:

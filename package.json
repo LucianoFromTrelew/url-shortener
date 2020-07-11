@@ -5,22 +5,31 @@
   "description": "",
   "author": "",
   "scripts": {
+    "dev": "nodemon",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
-    "lint": "vue-cli-service lint",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:server": "jest -c src/server/jest.config.js --detectOpenHandles --runInBand",
+    "lint": "vue-cli-service lint"
   },
   "main": "index.js",
   "dependencies": {
+    "@typegoose/typegoose": "^7.3.0",
     "core-js": "^3.6.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.23",
+    "morgan": "^1.10.0",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
     "vue-property-decorator": "^8.4.2"
   },
   "devDependencies": {
+    "@types/express": "^4.17.7",
     "@types/jest": "^24.0.19",
+    "@types/mongoose": "^5.7.31",
+    "@types/morgan": "^1.9.1",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
     "@vue/cli-plugin-babel": "~4.4.0",
@@ -35,7 +44,11 @@
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-vue": "^6.2.2",
+    "jest": "^26.1.0",
+    "nodemon": "^2.0.4",
     "prettier": "^1.19.1",
+    "ts-jest": "^26.1.1",
+    "ts-node": "^8.10.2",
     "typescript": "~3.9.3",
     "vue-template-compiler": "^2.6.11"
   },

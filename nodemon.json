@@ -1,0 +1,6 @@
+{
+  "watch": ["src/server"],
+  "ignore": ["src/server/tests"],
+  "exec": "tsc -p src/server && npm run serve",
+  "ext": "ts"
+}
