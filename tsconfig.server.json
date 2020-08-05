@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "outDir": "dist/server",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true
+  },
+  "include": ["server.ts"]
+}

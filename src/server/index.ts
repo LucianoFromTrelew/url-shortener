@@ -1,4 +1,4 @@
-import { Express, json, urlencoded } from "express";
+import express, { Express, json, urlencoded } from "express";
 import morgan from "morgan";
 import { connect } from "mongoose";
 import { getMongoDbUri } from "./config";
@@ -32,7 +32,7 @@ export interface ErrorResponse {
   msg: string;
 }
 
-export async function configureApp(app: Express) {
+export function configureApp(app: Express) {
   app.use(morgan("dev"));
   app.use(json());
   app.use(urlencoded({ extended: true }));
@@ -76,4 +76,10 @@ export async function configureApp(app: Express) {
     useNewUrlParser: true,
     useUnifiedTopology: true
   });
+}
+
+export function createConfiguredApp(): Express {
+  const app = express();
+  configureApp(app);
+  return app;
 }

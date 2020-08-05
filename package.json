@@ -6,12 +6,13 @@
   "author": "",
   "scripts": {
     "dev": "nodemon",
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build:app": "tsc -p src/server && vue-cli-service build",
+    "build:server": "tsc -p tsconfig.server.json",
+    "build": "npm run build:app && npm run build:server",
+    "test:server": "jest -c src/server/jest.config.js --detectOpenHandles --runInBand",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
-    "test:server": "jest -c src/server/jest.config.js --detectOpenHandles --runInBand",
-    "lint": "vue-cli-service lint"
+    "serve": "vue-cli-service serve"
   },
   "main": "index.js",
   "dependencies": {

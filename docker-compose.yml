@@ -1,5 +1,18 @@
 version: "3.8"
 services:
+  app:
+    build: .
+    image: url-shortener
+    container_name: url-shortener-app
+    environment: 
+      - PORT=8888
+      - MONGO_USER=user
+      - MONGO_PASSWORD=password
+      - MONGO_DB=database
+      - MONGO_HOST=db
+      - MONGO_PORT=27017
+    ports:
+      - "8800:8888"
   db:
     image: mongo
     container_name: "url-shortener-db"
@@ -7,8 +20,10 @@ services:
       - 27017:27017
     volumes:
       - "mongodb:/data/db"
-    env_file:
-      - "db.env"
+    environment: 
+      - MONGO_INITDB_ROOT_USERNAME=user
+      - MONGO_INITDB_ROOT_PASSWORD=password
+      - MONGO_INITDB_DATABASE=database
     restart: always
 volumes:
   mongodb:
